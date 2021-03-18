@@ -14,6 +14,7 @@ Theme: time wasting
     - sleeping
     - free time
 - build app that wastes OUR time??
+  - intentionally over-complex
 
 Target audience?
  - University students
