@@ -27,3 +27,14 @@ Deliver a written report on: what you are going to build, who is in your team (a
 31 May
 Deliver a working alpha release of your app along with source code, and source code documentation (extracted using a tool like Doxygen).
 
+
+26 March - Choose an idea to work on. Put any ideas on this readme if you have them
+2 April
+9 April
+16 April
+23 April
+30 April
+7 May
+14 May
+21 May
+28 May
