@@ -1,4 +1,4 @@
-Android app written in Kotlin
+- Android app written in Kotlin
 
 
 Theme: time wasting
@@ -25,3 +25,4 @@ Deliver a written report on: what you are going to build, who is in your team (a
 
 31 May
 Deliver a working alpha release of your app along with source code, and source code documentation (extracted using a tool like Doxygen).
+
