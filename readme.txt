@@ -3,7 +3,8 @@
 
 Theme: time wasting
 - build app that allows users to waste time
-  - addictive game
+  - addictive game, casino?
+  - engagement, postitive feedback
 - build app that helps users not waste time
   - scheduling help?
   - productivity apps
