@@ -38,3 +38,8 @@ Deliver a working alpha release of your app along with source code, and source c
 14 May
 21 May
 28 May
+
+Max - design, programming
+Rhys - programming
+Nat - writing
+Caitlin - communication
