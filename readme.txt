@@ -29,7 +29,7 @@ Deliver a working alpha release of your app along with source code, and source c
 
 
 26 March - Choose an idea to work on. Put any ideas on this readme if you have them. (Check android store requirements)
-2 April - Flesh out idea more
+2 April - Flesh out idea more. Split into parts, think of how everything would work etc
 9 April - Start drafting the report, figure out what it'll look like, whats sections it needs
 16 April - Discuss report more??
 23 April
