@@ -22,10 +22,14 @@ Theme: time wasting
 * where's wally, but wally is invisible
 * app that takes you to a site or youtube video with 0 views
 - google maps game drops you in a random location (similar to geoguessr) and you have to find the nearest airport
-- rhythm game where level is based on music. multiple songs with randomised sections, you can play forever or beat your score
+> rhythm game where level is based on music. multiple songs with randomised sections, you can play forever or beat your score
 * rudimentary music-making (enabling / disabling loops?)
 * note-taking with collapsible notes
 - task management but with gameified where completing tasks lets you grow a creature
+
+
+Rhythm game where the required inputs for each level are based on different pieces of music. There are multiple songs with sections whose order is randomised, you can play forever or beat your score. Player needs to input to jump over pits or duck under objects etc. Precise timing input important. Limited number of hits before game ends - optional health recovery?
+
 
 
 Target audience?
