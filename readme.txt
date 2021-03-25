@@ -17,6 +17,12 @@ Theme: time wasting
 - build app that wastes OUR time??
   - intentionally over-complex
 
+- game where you're stuck in the back of a queue & you have to get to the front
+- app that rings studylink
+- where's wally, but wally is invisible
+- app that takes you to a site or youtube video with 0 views
+- google maps game drops you in a random location (similar to geoguessr) and you have to find the nearest airport
+
 Target audience?
  - University students
 
