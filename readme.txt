@@ -28,7 +28,10 @@ Theme: time wasting
 - task management but with gameified where completing tasks lets you grow a creature
 
 
-Rhythm game where the required inputs for each level are based on different pieces of music. There are multiple songs with sections whose order is randomised, you can play forever or beat your score. Player needs to input to jump over pits or duck under objects etc. Precise timing input important. Limited number of hits before game ends - optional health recovery?
+Rhythm game where the required inputs for each level are based on different pieces of music.
+There are multiple songs with sections whose order is randomised, you can play forever or beat your score.
+Player needs to input to jump over pits or duck under objects etc. Precise timing input important.
+Limited number of hits before game ends - optional health recovery?
 
 
 
