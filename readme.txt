@@ -35,6 +35,7 @@ x note-taking with collapsible notes
 - Auto-runner rhythm game where inputs are synced to music
 - Multiple songs to chose from. Each song is made up of different sections whose order is randomised, so you can learn the inputs for specific sections, but you never know the overall structure.
 - Player needs to input to jump over pits, duck under objects etc. Precise timing is very important, leanring the music helps with this.
+- Game continues endlessly or until the player quits or loses. Save high scores, score more depending on duration of game and input precision
 - Player can only miss a vertain number of inputs before game ends. Optional health recovery?
 - Think Vib-Ribbon (1999) but more intense, requiring more inputs from the player, and the level layouts are not generated from the player's own music.
 
@@ -44,6 +45,10 @@ Rhys - design, programming, music
 Max - design, programming, music
 Nat - design, programming, documentation
 Caitlin - design, programming, visual communication
+
+
+How would levels be built?
+- Could be stored as text files that contain the obstacles correlating to each beat of each song section? And then the game "reads" these lists in sync with the tempo of each song
 
 
 
