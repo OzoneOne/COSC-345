@@ -1,5 +1,4 @@
 - Android app written in Kotlin
-
 - Theme: time wasting
 
 
@@ -48,13 +47,11 @@ Caitlin - design, programming, visual communication
 
 
 
-
 19 April
 Deliver a written report on: what you are going to build, who is in your team (and why), how you are going to build it, how long it will take to build, what already exists that is similar to your app, how you will differ from that, your target market, and why your target market will be interested in your app.
 
 31 May
 Deliver a working alpha release of your app along with source code, and source code documentation (extracted using a tool like Doxygen).
-
 
 
 26 March - Choose an idea to work on. Put any ideas on this readme if you have them. (Check android store requirements)
