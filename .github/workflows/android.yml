@@ -18,6 +18,8 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
+    - name: change directory
+      run: cd Prototype
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
