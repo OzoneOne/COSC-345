@@ -21,7 +21,7 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Generate Documentation
+    - name: Generate documentation
       run: ./gradlew dokkaHtml
     - name: Move documentation to the correct folder
       run: |
@@ -30,6 +30,6 @@ jobs:
           git add docs
           git config --global user.email "davrh925@student.otago.ac.nz"
           git config --global user.name "Rhys Davie"
-          git commit -m "Update Documentation"
+          git commit -m "Auto update docs"
           git push
 
