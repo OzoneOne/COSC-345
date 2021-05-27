@@ -21,10 +21,13 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
+    - name: Generate Documentation
       run: ./gradlew dokkaHtml
     - name: Move documentation to the correct folder
       run:
           rm -rf docs
           mv app/build/dokka/html docs
           git add docs
+          git commit -m "Update Documentation"
+          git push
+
