@@ -24,7 +24,7 @@ jobs:
     - name: Generate Documentation
       run: ./gradlew dokkaHtml
     - name: Move documentation to the correct folder
-      run:
+      run: |
           rm -rf docs
           mv app/build/dokka/html docs
           git add docs
