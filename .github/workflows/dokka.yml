@@ -28,6 +28,8 @@ jobs:
           rm -rf docs
           mv app/build/dokka/html docs
           git add docs
+          git config --global user.email "davrh925@student.otago.ac.nz"
+          git config --global user.name "Rhys Davie"
           git commit -m "Update Documentation"
           git push
 
