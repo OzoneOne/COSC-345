@@ -1,14 +1,14 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:com.example.prototype////PointingToDeclaration/app/com.example.prototype/index.html
-$dokka.location:com.example.prototype/KotlinInvadersActivity///PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-activity/index.html
-$dokka.location:com.example.prototype/KotlinInvadersActivity/KotlinInvadersActivity/#/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-activity/-kotlin-invaders-activity.html
-$dokka.location:com.example.prototype/KotlinInvadersView///PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/index.html
-$dokka.location:com.example.prototype/KotlinInvadersView/KotlinInvadersView/#android.content.Context#android.graphics.Point/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/-kotlin-invaders-view.html
-$dokka.location:com.example.prototype/KotlinInvadersView/onTouchEvent/#android.view.MotionEvent/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/on-touch-event.html
-$dokka.location:com.example.prototype/KotlinInvadersView/pause/#/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/pause.html
-$dokka.location:com.example.prototype/KotlinInvadersView/resume/#/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/resume.html
-$dokka.location:com.example.prototype/KotlinInvadersView/run/#/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/run.html
+$dokka.location:com.example.prototype/MainActivity///PointingToDeclaration/app/com.example.prototype/-main-activity/index.html
+$dokka.location:com.example.prototype/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.prototype/-main-activity/-main-activity.html
+$dokka.location:com.example.prototype/MainView///PointingToDeclaration/app/com.example.prototype/-main-view/index.html
+$dokka.location:com.example.prototype/MainView/MainView/#android.content.Context#android.graphics.Point/PointingToDeclaration/app/com.example.prototype/-main-view/-main-view.html
+$dokka.location:com.example.prototype/MainView/onTouchEvent/#android.view.MotionEvent/PointingToDeclaration/app/com.example.prototype/-main-view/on-touch-event.html
+$dokka.location:com.example.prototype/MainView/pause/#/PointingToDeclaration/app/com.example.prototype/-main-view/pause.html
+$dokka.location:com.example.prototype/MainView/resume/#/PointingToDeclaration/app/com.example.prototype/-main-view/resume.html
+$dokka.location:com.example.prototype/MainView/run/#/PointingToDeclaration/app/com.example.prototype/-main-view/run.html
 $dokka.location:com.example.prototype/Obstacle///PointingToDeclaration/app/com.example.prototype/-obstacle/index.html
 $dokka.location:com.example.prototype/Obstacle/Obstacle/#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.prototype/-obstacle/-obstacle.html
 $dokka.location:com.example.prototype/Obstacle/isVisible/#/PointingToDeclaration/app/com.example.prototype/-obstacle/is-visible.html
