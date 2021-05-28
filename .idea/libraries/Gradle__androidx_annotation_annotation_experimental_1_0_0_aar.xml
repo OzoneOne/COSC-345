@@ -8,6 +8,8 @@
       <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-2/files-2.1/dd2a50c65b62d8b96b55419a8af0a087/jetified-annotation-experimental-1.0.0/res" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation-experimental/1.0.0/2408f6cb8f31ffabdd88e1365f82914c251e44dc/annotation-experimental-1.0.0-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

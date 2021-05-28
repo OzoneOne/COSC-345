@@ -8,6 +8,8 @@
       <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-2/files-2.1/aee427b54a303cc586c23c86d10034d7/versionedparcelable-1.1.0/res" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/androidx.versionedparcelable/versionedparcelable/1.1.0/d9085927216387af679d18b6f472bc0fc5c7cc81/versionedparcelable-1.1.0-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

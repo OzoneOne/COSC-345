@@ -7,8 +7,8 @@ import android.view.SurfaceView
 import android.util.Log
 import android.view.MotionEvent
 
-class KotlinInvadersView(context: Context,
-                         private val size: Point)
+class MainView(context: Context,
+               private val size: Point)
     : SurfaceView(context),
         Runnable {
 

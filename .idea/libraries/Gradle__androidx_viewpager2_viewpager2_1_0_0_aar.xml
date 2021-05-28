@@ -9,6 +9,8 @@
       <root url="jar://$PROJECT_DIR$/../.gradle/caches/transforms-2/files-2.1/27a9f4121144a4caaff3777f435653cd/jetified-viewpager2-1.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
