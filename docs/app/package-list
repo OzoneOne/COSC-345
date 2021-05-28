@@ -1,7 +1,46 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:com.example.prototype////PointingToDeclaration/app/com.example.prototype/index.html
-$dokka.location:com.example.prototype/MainActivity///PointingToDeclaration/app/com.example.prototype/-main-activity/index.html
-$dokka.location:com.example.prototype/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.prototype/-main-activity/-main-activity.html
+$dokka.location:com.example.prototype/KotlinInvadersActivity///PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-activity/index.html
+$dokka.location:com.example.prototype/KotlinInvadersActivity/KotlinInvadersActivity/#/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-activity/-kotlin-invaders-activity.html
+$dokka.location:com.example.prototype/KotlinInvadersView///PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/index.html
+$dokka.location:com.example.prototype/KotlinInvadersView/KotlinInvadersView/#android.content.Context#android.graphics.Point/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/-kotlin-invaders-view.html
+$dokka.location:com.example.prototype/KotlinInvadersView/onTouchEvent/#android.view.MotionEvent/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/on-touch-event.html
+$dokka.location:com.example.prototype/KotlinInvadersView/pause/#/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/pause.html
+$dokka.location:com.example.prototype/KotlinInvadersView/resume/#/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/resume.html
+$dokka.location:com.example.prototype/KotlinInvadersView/run/#/PointingToDeclaration/app/com.example.prototype/-kotlin-invaders-view/run.html
+$dokka.location:com.example.prototype/Obstacle///PointingToDeclaration/app/com.example.prototype/-obstacle/index.html
+$dokka.location:com.example.prototype/Obstacle/Obstacle/#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.prototype/-obstacle/-obstacle.html
+$dokka.location:com.example.prototype/Obstacle/isVisible/#/PointingToDeclaration/app/com.example.prototype/-obstacle/is-visible.html
+$dokka.location:com.example.prototype/Obstacle/position/#/PointingToDeclaration/app/com.example.prototype/-obstacle/position.html
+$dokka.location:com.example.prototype/Obstacle/update/#kotlin.Long/PointingToDeclaration/app/com.example.prototype/-obstacle/update.html
+$dokka.location:com.example.prototype/PlayerShip.Companion///PointingToDeclaration/app/com.example.prototype/-player-ship/-companion/index.html
+$dokka.location:com.example.prototype/PlayerShip.Companion/floating/#/PointingToDeclaration/app/com.example.prototype/-player-ship/-companion/floating.html
+$dokka.location:com.example.prototype/PlayerShip.Companion/grounded/#/PointingToDeclaration/app/com.example.prototype/-player-ship/-companion/grounded.html
+$dokka.location:com.example.prototype/PlayerShip.Companion/jumping/#/PointingToDeclaration/app/com.example.prototype/-player-ship/-companion/jumping.html
+$dokka.location:com.example.prototype/PlayerShip.Companion/left/#/PointingToDeclaration/app/com.example.prototype/-player-ship/-companion/left.html
+$dokka.location:com.example.prototype/PlayerShip.Companion/noJump/#/PointingToDeclaration/app/com.example.prototype/-player-ship/-companion/no-jump.html
+$dokka.location:com.example.prototype/PlayerShip.Companion/right/#/PointingToDeclaration/app/com.example.prototype/-player-ship/-companion/right.html
+$dokka.location:com.example.prototype/PlayerShip.Companion/stopped/#/PointingToDeclaration/app/com.example.prototype/-player-ship/-companion/stopped.html
+$dokka.location:com.example.prototype/PlayerShip///PointingToDeclaration/app/com.example.prototype/-player-ship/index.html
+$dokka.location:com.example.prototype/PlayerShip/PlayerShip/#android.content.Context#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.prototype/-player-ship/-player-ship.html
+$dokka.location:com.example.prototype/PlayerShip/bitmap/#/PointingToDeclaration/app/com.example.prototype/-player-ship/bitmap.html
+$dokka.location:com.example.prototype/PlayerShip/checkCollisions/#/PointingToDeclaration/app/com.example.prototype/-player-ship/check-collisions.html
+$dokka.location:com.example.prototype/PlayerShip/jumpState/#/PointingToDeclaration/app/com.example.prototype/-player-ship/jump-state.html
+$dokka.location:com.example.prototype/PlayerShip/moving/#/PointingToDeclaration/app/com.example.prototype/-player-ship/moving.html
+$dokka.location:com.example.prototype/PlayerShip/position/#/PointingToDeclaration/app/com.example.prototype/-player-ship/position.html
+$dokka.location:com.example.prototype/PlayerShip/touchGround/#/PointingToDeclaration/app/com.example.prototype/-player-ship/touch-ground.html
+$dokka.location:com.example.prototype/PlayerShip/update/#kotlin.Long/PointingToDeclaration/app/com.example.prototype/-player-ship/update.html
+$dokka.location:com.example.prototype/PlayerShip/width/#/PointingToDeclaration/app/com.example.prototype/-player-ship/width.html
+$dokka.location:com.example.prototype/SoundPlayer.Companion///PointingToDeclaration/app/com.example.prototype/-sound-player/-companion/index.html
+$dokka.location:com.example.prototype/SoundPlayer.Companion/damageShelterID/#/PointingToDeclaration/app/com.example.prototype/-sound-player/-companion/damage-shelter-i-d.html
+$dokka.location:com.example.prototype/SoundPlayer.Companion/invaderExplodeID/#/PointingToDeclaration/app/com.example.prototype/-sound-player/-companion/invader-explode-i-d.html
+$dokka.location:com.example.prototype/SoundPlayer.Companion/ohID/#/PointingToDeclaration/app/com.example.prototype/-sound-player/-companion/oh-i-d.html
+$dokka.location:com.example.prototype/SoundPlayer.Companion/playerExplodeID/#/PointingToDeclaration/app/com.example.prototype/-sound-player/-companion/player-explode-i-d.html
+$dokka.location:com.example.prototype/SoundPlayer.Companion/shootID/#/PointingToDeclaration/app/com.example.prototype/-sound-player/-companion/shoot-i-d.html
+$dokka.location:com.example.prototype/SoundPlayer.Companion/uhID/#/PointingToDeclaration/app/com.example.prototype/-sound-player/-companion/uh-i-d.html
+$dokka.location:com.example.prototype/SoundPlayer///PointingToDeclaration/app/com.example.prototype/-sound-player/index.html
+$dokka.location:com.example.prototype/SoundPlayer/SoundPlayer/#android.content.Context/PointingToDeclaration/app/com.example.prototype/-sound-player/-sound-player.html
+$dokka.location:com.example.prototype/SoundPlayer/playSound/#kotlin.Int/PointingToDeclaration/app/com.example.prototype/-sound-player/play-sound.html
 com.example.prototype
 
