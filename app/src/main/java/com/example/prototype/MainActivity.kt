@@ -3,6 +3,8 @@ package com.example.prototype
 import android.app.Activity
 import android.graphics.Point
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
 
 class MainActivity : Activity() {
 
@@ -13,6 +15,10 @@ class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // hide the Android status bar at the top of the screen
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         // Get a Display object to access screen details
         val display = windowManager.defaultDisplay
