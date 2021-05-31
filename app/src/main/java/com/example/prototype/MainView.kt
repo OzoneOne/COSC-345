@@ -16,9 +16,6 @@ class MainView(context: Context,
     //Create an obstacle
     private var obstacle: Obstacle = Obstacle(size.x, size.y)
 
-    // For making a noise
-    private val soundPlayer = SoundPlayer(context)
-
     // This is our thread
     private val gameThread = Thread(this)
 
@@ -32,8 +29,8 @@ class MainView(context: Context,
     private var canvas: Canvas = Canvas()
     private val paint: Paint = Paint()
 
-    // The players ship
-    private var playerShip: PlayerShip = PlayerShip(context, size.x, size.y)
+    // The player character
+    private var player: Player = Player(context, size.x, size.y)
 
     // The score
     private var score = 0
@@ -50,18 +47,6 @@ class MainView(context: Context,
             Context.MODE_PRIVATE)
 
     private var highScore =  prefs.getInt("highScore", 0)
-
-    // How menacing should the sound be?
-    private var menaceInterval: Long = 1000
-
-    // Which menace sound should play next
-    private var uhOrOh: Boolean = false
-    // When did we last play a menacing sound
-    private var lastMenaceTime = System.currentTimeMillis()
-
-
-
-
 
     override fun run() {
         // This variable tracks the game frame rate
@@ -85,42 +70,20 @@ class MainView(context: Context,
             if (timeThisFrame >= 1) {
                 fps = 1000 / timeThisFrame
             }
-
-            // Play a sound based on the menace level
-            if (!paused && ((startFrameTime - lastMenaceTime) > menaceInterval))
-                menacePlayer()
         }
-    }
-
-    private fun menacePlayer() {
-        if (uhOrOh) {
-            // Play Uh
-            soundPlayer.playSound(SoundPlayer.uhID)
-
-        } else {
-            // Play Oh
-            soundPlayer.playSound(SoundPlayer.ohID)
-        }
-
-        // Reset the last menace time
-        lastMenaceTime = System.currentTimeMillis()
-        // Alter value of uhOrOh
-        uhOrOh = !uhOrOh
-
     }
 
     private fun update(fps: Long) {
         // Update the state of all the game objects
 
-        // Move the player's ship
-        playerShip.update(fps)
+        // Update the player character
+        player.update(fps)
 
         // move the obstacle
         obstacle.update(fps)
 
         // Has the player lost
         var lost = false
-
 
         if (lost) {
             paused = true
@@ -143,54 +106,11 @@ class MainView(context: Context,
             paint.color = Color.argb(255, 0, 255, 0)
 
             // Draw all the game objects here
-            // Now draw the player spaceship
-            canvas.drawBitmap(playerShip.bitmap, playerShip.position.left,
-                    playerShip.position.top
-                    , paint)
-
-            // Draw the invaders
-            /*for (invader in invaders) {
-                if (invader.isVisible) {
-                    if (uhOrOh) {
-                        canvas.drawBitmap(Invader.bitmap1,
-                                invader.position.left,
-                                invader.position.top,
-                                paint)
-                    } else {
-                        canvas.drawBitmap(Invader.bitmap2,
-                                invader.position.left,
-                                invader.position.top,
-                                paint)
-                    }
-                }
-            }
-
-            */
+            // Now draw the player character
+            canvas.drawBitmap(player.bitmap, player.position.left, player.position.top, paint)
 
             //Draw the obstacle
             canvas.drawRect(obstacle.position, paint)
-
-
-
-            /*
-            // Draw the bricks if visible
-            for (brick in bricks) {
-                if (brick.isVisible) {
-                    canvas.drawRect(brick.position, paint)
-                }
-            }
-
-            // Draw the players playerBullet if active
-            if (playerBullet.isActive) {
-                canvas.drawRect(playerBullet.position, paint)
-            }
-
-            // Draw the invaders bullets
-            for (bullet in invadersBullets) {
-                if (bullet.isActive) {
-                    canvas.drawRect(bullet.position, paint)
-                }
-            } */
 
             // Draw the score and remaining lives
             // Change the brush color
@@ -230,7 +150,7 @@ class MainView(context: Context,
         }
     }
 
-    // If SpaceInvadersActivity is started then
+    // If MainActivity is started then
     // start our thread.
     fun resume() {
         playing = true
@@ -250,64 +170,23 @@ class MainView(context: Context,
             MotionEvent.ACTION_MOVE-> {
                 paused = false
 
-
-                if (motionEvent.y > motionArea) {
-                    if (motionEvent.x > size.x / 2) {
-                        playerShip.moving = PlayerShip.right
-                    } else {
-                        playerShip.moving = PlayerShip.left
-                    }
-
-                }
-
+                // player character jumps on screen touch
                 if (motionEvent.y < motionArea) {
-                    if(playerShip.touchGround == PlayerShip.grounded){
-                        playerShip.jumpState = PlayerShip.jumping
+                    if(player.jumpState == Player.grounded){
+                        player.jumpState = Player.jumping
                     }
-
-
-                // Shots fired
-
-
-                        /*
-                    if (playerBullet.shoot(
-                                    playerShip.position.left + playerShip.width / 2f,
-                                    playerShip.position.top,
-                                    playerBullet.up)) {
-
-                        soundPlayer.playSound(SoundPlayer.shootID)
-                    }   */
-
-                   /* playerShip.jumpState = PlayerShip.jumping */
-
-
-                   /*  Jumping physics that don't work
-                    if(playerShip.jumpState == 0){
-                        playerShip.velocity = 50f
-                        playerShip.position.top += playerShip.velocity
-                        playerShip.position.bottom += playerShip.velocity
-                        playerShip.velocity -= 5f
-                        playerShip.jumpState = 1
-                    } else if(playerShip.jumpState == 1){
-                        playerShip.position.top += playerShip.velocity
-                        playerShip.position.bottom += playerShip.velocity
-                        playerShip.velocity -= 5f
-                    }
-
-                    */
                 }
             }
 
             // Player has removed finger from screen
-            MotionEvent.ACTION_POINTER_UP,
-            MotionEvent.ACTION_UP -> {
-                if (motionEvent.y > motionArea) {
-                    playerShip.moving = PlayerShip.stopped
-                }
-            }
+            //MotionEvent.ACTION_POINTER_UP,
+            //MotionEvent.ACTION_UP -> {
+            //    if (motionEvent.y > motionArea) {
+
+            //    }
+            //}
 
         }
         return true
     }
-
 }
