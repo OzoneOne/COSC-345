@@ -77,9 +77,8 @@ class MainView(context: Context, private val size: Point) : SurfaceView(context)
     }
 
     private fun update(fps: Long) {
-        /**
-        * Updates the state of all the game objects on every frame
-        */
+
+        //Updates the state of all the game objects on every frame
         var lost = false
         // Update player and move them
         player.update(fps)
