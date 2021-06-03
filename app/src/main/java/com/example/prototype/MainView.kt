@@ -7,13 +7,6 @@ import android.view.SurfaceView
 import android.util.Log
 import android.view.MotionEvent
 
-/**
- * This class is the class that does all the work.
- * In fact, it probably does too much work.
- * It will hold instances of all the other classes and
- * control their updating, interaction and drawing to the screen.
- * It will also handle the player’s screen touches.
- */
 class MainView(context: Context, private val size: Point) : SurfaceView(context), Runnable {
     // Game thread
     private val gameThread = Thread(this)
