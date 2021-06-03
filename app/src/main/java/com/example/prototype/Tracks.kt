@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.RectF
 import android.graphics.BitmapFactory
 
-/** TRACKS
+/* TRACKS
  *  class needs to:
  *      control obstacles
  *          +start obstacles in a controlled position [ -]

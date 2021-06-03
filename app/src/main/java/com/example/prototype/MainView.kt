@@ -7,7 +7,7 @@ import android.view.SurfaceView
 import android.util.Log
 import android.view.MotionEvent
 
-/**
+/*
  * This class is the class that does all the work.
  * In fact, it probably does too much work.
  * It will hold instances of all the other classes and
@@ -45,7 +45,7 @@ class MainView(context: Context, private val size: Point) : SurfaceView(context)
     private var lives = 1
     private var highScore = 0
 
-    /**
+    /*
      * Initialises the game objects for a level
      */
     private fun prepareLevel() {
@@ -79,7 +79,7 @@ class MainView(context: Context, private val size: Point) : SurfaceView(context)
     }
 
     private fun update(fps: Long) {
-        /**
+        /*
          * Updates the state of all the game objects on every frame
          **/
         var lost = false

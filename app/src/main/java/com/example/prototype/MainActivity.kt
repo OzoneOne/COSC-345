@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
 
-/**
+/*
  * This class is the entry point to the game
  * and will initialize an instance of the class
  * that does all the work as well as
