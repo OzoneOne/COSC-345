@@ -14,7 +14,7 @@ import android.view.WindowManager
  * the player starts and stops the app.
  */
 class MainActivity : Activity() {
-    // alpha03View will be the view of the game
+    // MainView will be the view of the game
     // It will also hold the logic of the game
     // and respond to screen touches as well
     private var gameView: MainView? = null

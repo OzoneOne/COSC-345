@@ -13,7 +13,6 @@ import android.graphics.BitmapFactory
  *          +move them left at a controlled speed [<- ]
  *          if they have left screen deactivate, add point [' ]
  */
-
 class Tracks(context: Context, private val screenX: Int, val screenY: Int) {
     // bitmap for track
     var trackBitmap: Bitmap = BitmapFactory.decodeResource(
