@@ -1,27 +1,41 @@
 package com.example.prototype
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.RectF
 
-class Obstacle(screenX: Int, screenY: Int) {
+class Obstacle(context: Context, screenY: Int, private val speed: Float = 350f, heightModifier: Float = 20f) {
 
-    var isVisible = true
+    val obstaclePosition = RectF()
+    val left = 0
 
-    private val width = screenX / 180f
-    private val height = screenY / 80f
-    private val speed = 200f
+    private var heading = -1
+    private val width = screenY / heightModifier
+    private var height = screenY / heightModifier
 
-    private var currentX = screenX
+    var obstacleIsActive = false
 
-    fun update(fps: Long){
-        position.left -= speed / fps
-        position.right -= speed / fps
-
+    fun startObstacle(startX: Float, startY: Float, direction: Int): Boolean {
+        if (!obstacleIsActive) {
+            obstaclePosition.left = startX
+            obstaclePosition.top = startY
+            obstaclePosition.right = obstaclePosition.left + width
+            obstaclePosition.bottom = obstaclePosition.top + height
+            heading = direction
+            obstacleIsActive = true
+            return true
+        }
+        return false
     }
 
-    val position = RectF(
-            screenX / 2f,
-            screenY-height,
-            screenX/2 + width,
-            screenY.toFloat()
-    )
+    fun updateObstacle(fps: Long) {
+        // Just move left
+        if (heading == left) {
+            obstaclePosition.left -= speed / fps
+        }
+        // Update the bottom position
+        obstaclePosition.right = obstaclePosition.left + width
+        obstaclePosition.bottom = obstaclePosition.top + height
+    }
 }

@@ -7,53 +7,56 @@ import android.view.SurfaceView
 import android.util.Log
 import android.view.MotionEvent
 
-class MainView(context: Context,
-               private val size: Point)
-    : SurfaceView(context),
-        Runnable {
+/** This class is the class that does all the work.
+ * In fact, it probably does too much work.
+ * It will hold instances of all the other classes and
+ * control their updating, interaction and drawing to the screen.
+ * It will also handle the player’s screen touches.
+ */
 
-
-    //Create an obstacle
-    private var obstacle: Obstacle = Obstacle(size.x, size.y)
-
-    // This is our thread
+class MainView(context: Context, private val size: Point) : SurfaceView(context), Runnable {
+    // Game thread
     private val gameThread = Thread(this)
-
-    // A boolean which we will set and unset
+    // Playing states
     private var playing = false
-
-    // Game is paused at the start
     private var paused = true
-
-    // A Canvas and a Paint object
+    // Canvas and paint object
     private var canvas: Canvas = Canvas()
     private val paint: Paint = Paint()
 
-    // The player character
+    /** Here we initialise the game objects */
+    // The player
     private var player: Player = Player(context, size.x, size.y)
 
-    // The score
+    /** tracks to do:
+     * - give it a random generator, make obstacles activate when it returns true
+     * - do collision detection between obstacles n player
+     */
+    // The tracks you can play
+    private var track: Tracks = Tracks(context, size.x, size.y)
+
+    private val trackObstacles = ArrayList<Obstacle>()
+    private var nextObstacle = 0
+    private val maxObstacles = 10
+
+    // Score
     private var score = 0
-
-    // The wave number
     private var waves = 1
+    private var lives = 1
+    private var highScore = 0
 
-    // Lives
-    private var lives = 3
+    /** Here we initialise the game objects */
+    private fun prepareLevel() {
+        for (i in 0 until maxObstacles ){
+            trackObstacles.add(Obstacle(context, size.y))
 
-    // To remember the high score
-    private val prefs: SharedPreferences = context.getSharedPreferences(
-            "Kotlin Invaders",
-            Context.MODE_PRIVATE)
-
-    private var highScore =  prefs.getInt("highScore", 0)
+        }
+    }
 
     override fun run() {
-        // This variable tracks the game frame rate
-        var fps: Long = 0
-
-        while (playing) {
-
+        // Track frame rate
+        var fps: Long= 0
+        while (playing){
             // Capture the current time
             val startFrameTime = System.currentTimeMillis()
 
@@ -74,26 +77,57 @@ class MainView(context: Context,
     }
 
     private fun update(fps: Long) {
-        // Update the state of all the game objects
-
-        // Update the player character
-        player.update(fps)
-
-        // move the obstacle
-        obstacle.update(fps)
-
-        // Has the player lost
+        /** Update the state of all the game objects **/
         var lost = false
+        // Update player and move them
+        player.update(fps)
+        // Update track
+        track.update(fps)
+        // **
+        if (track.tryStartObstacle(waves)) {
+            if (trackObstacles[nextObstacle].startObstacle(size.x.toFloat(), size.y / 2f, 0)) {
+                // obstacle activated
+                nextObstacle++
+            }
+        }
+        for (obstacle in trackObstacles) {
+            if (obstacle.obstacleIsActive) {
+                obstacle.updateObstacle(fps)
+            }
+        }
+        // Has an obstacle hit the left of the screen
+        for (obstacle in trackObstacles) {
+            if (obstacle.obstacleIsActive) {
+                if (obstacle.obstaclePosition.left < 0) {
+                    score++
+                    obstacle.obstacleIsActive = false
+                }
+            }
+        }
 
+        for (obstacle in trackObstacles) {
+            if (obstacle.obstacleIsActive) {
+                // Has it hit player?
+
+                if (RectF.intersects(player.position, obstacle.obstaclePosition)) {
+                    obstacle.obstacleIsActive = false
+                    lost = true
+                    break
+                }
+            }
+        }
+        ///////////////
         if (lost) {
             paused = true
-            lives = 3
+            lives = 0
             score = 0
             waves = 1
+            trackObstacles.clear()
+            prepareLevel()
         }
     }
 
-    private fun draw() {
+    private fun draw(){
         // Make sure our drawing surface is valid or the game will crash
         if (holder.surface.isValid) {
             // Lock the canvas ready to draw
@@ -105,13 +139,25 @@ class MainView(context: Context,
             // Choose the brush color for drawing
             paint.color = Color.argb(255, 0, 255, 0)
 
-            // Draw all the game objects here
-            // Now draw the player character
-            canvas.drawBitmap(player.bitmap, player.position.left, player.position.top, paint)
+            /** Draw all the game objects here **/
+            // BR
+            canvas.drawBitmap(track.trackBitmap, track.trackPosition.left,
+                track.trackPosition.top, paint)
 
-            //Draw the obstacle
-            canvas.drawRect(obstacle.position, paint)
+            // Obstacles
+            /** CURRENTLY DONT NEED
+            canvas.drawBitmap(track.obstacleBitmap, track.obstaclePosition.left,
+            track.obstaclePosition.top, paint) **/
 
+            for (obstacle in trackObstacles){
+                if(obstacle.obstacleIsActive){
+                    canvas.drawRect(obstacle.obstaclePosition, paint)
+                }
+            }
+            // Draw the player
+            canvas.drawBitmap(player.bitmap, player.position.left,
+                player.position.top
+                , paint)
             // Draw the score and remaining lives
             // Change the brush color
             paint.color = Color.argb(255, 255, 255, 255)
@@ -123,9 +169,6 @@ class MainView(context: Context,
             holder.unlockCanvasAndPost(canvas)
         }
     }
-
-    // If SpaceInvadersActivity is paused/stopped
-    // then shut down our thread.
     fun pause() {
         playing = false
         try {
@@ -133,59 +176,37 @@ class MainView(context: Context,
         } catch (e: InterruptedException) {
             Log.e("Error:", "joining thread")
         }
-
-        val prefs = context.getSharedPreferences(
-                "Kotlin Invaders",
-                Context.MODE_PRIVATE)
-
-        val oldHighScore = prefs.getInt("highScore", 0)
-
-        if(highScore > oldHighScore) {
-            val editor = prefs.edit()
-
-            editor.putInt(
-                    "highScore", highScore)
-
-            editor.apply()
-        }
     }
-
-    // If MainActivity is started then
-    // start our thread.
     fun resume() {
         playing = true
+        prepareLevel()
         gameThread.start()
     }
-
     // The SurfaceView class implements onTouchListener
     // So we can override this method and detect screen touches.
     override fun onTouchEvent(motionEvent: MotionEvent): Boolean {
-        val motionArea = size.y - (size.y / 8)
         when (motionEvent.action and MotionEvent.ACTION_MASK) {
-
             // Player has touched the screen
             // Or moved their finger while touching screen
             MotionEvent.ACTION_POINTER_DOWN,
             MotionEvent.ACTION_DOWN,
-            MotionEvent.ACTION_MOVE-> {
+            MotionEvent.ACTION_MOVE -> {
                 paused = false
-
-                // player character jumps on screen touch
-                if (motionEvent.y < motionArea) {
-                    if(player.jumpState == Player.grounded){
-                        player.jumpState = Player.jumping
+                if (motionEvent.y > size.y - size.y / 8) {
+                    if (motionEvent.x > size.x / 2) {
+                        player.moving = Player.up
+                    } else {
+                        player.moving = Player.down
                     }
                 }
             }
-
             // Player has removed finger from screen
-            //MotionEvent.ACTION_POINTER_UP,
-            //MotionEvent.ACTION_UP -> {
-            //    if (motionEvent.y > motionArea) {
-
-            //    }
-            //}
-
+            MotionEvent.ACTION_POINTER_UP,
+            MotionEvent.ACTION_UP -> {
+                if (motionEvent.y > size.y - size.y / 10) {
+                    player.moving = Player.stopped
+                }
+            }
         }
         return true
     }

@@ -5,56 +5,67 @@ import android.graphics.Bitmap
 import android.graphics.RectF
 import android.graphics.BitmapFactory
 
-class Player(context: Context, private val screenX: Int, private val screenY: Int) {
+class Player(context: Context, private val screenX: Int,val screenY: Int) {
 
-    // bitmap to represent the player character
-    var bitmap: Bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.player_temp)
+    // bitmap for player
+    var bitmap: Bitmap = BitmapFactory.decodeResource(
+        context.resources,
+        R.drawable.player)
+    // sizing of player
+    val width = screenX / 10f
+    private val height = screenY / 10f
 
-    // width and height of player character (used in init to stretch bitmap)
-    private val width = 80f
-    private val height = 80f
-
-    // set the default position
+    // track position of player
     val position = RectF(
-        screenX / 2f - (width / 2),
-        800f,
-        screenX / 2 + (width / 2),
-        screenY.toFloat())
+        screenX/2f,
+        screenY/2f,
+        screenX/2 + width,
+        screenY/2f + height)
 
-    // pixels per second the player can move
-    //private val speed = 450f
-
+    // pixels per second speed
+    // that the player can move
+    private val speed  = 450f
     // jump-related values
     private val jumpForce = 40f
     private var velocity = jumpForce
     private val gravity = 2f
 
-    // data accessible using ClassName.propertyName
+    // (This data is accessible using ClassName.propertyName)
     companion object {
-        const val grounded = 0
-        const val jumping = 1
+        // Which ways can the player move
+        const val stopped = 0
+        const val up = 1
+        const val down = 2
     }
+    // Is the player moving
+    var moving = stopped
 
-    var jumpState = grounded
-
-    // this method is called when the class is initialized
+    // size the bitmap to the screen resolution
     init {
-        // stretch the bitmap to set size
-        bitmap = Bitmap.createScaledBitmap(bitmap, width.toInt(), height.toInt(),false)
+        bitmap = Bitmap.createScaledBitmap(bitmap,
+            width.toInt() ,
+            height.toInt() ,
+            false)
     }
-
-    // this method is called every frame
+    // This update method will be called from update in "View"
+    // It determines if the player's
+    // needs to move and changes the coordinates
     fun update(fps: Long) {
-        // jump in an arc
-        if (jumpState == jumping && position.top <= 800) {
-            position.top -= velocity
-            velocity -= gravity
+        // Move as long as it doesn't go out of range:
+        val unit = screenX/5
+        if (moving == up && position.top > unit) {
+            position.top -= speed / fps
         }
-
-        // reset position after jump
-        if (position.top > 800) {
-            jumpState = grounded
-            position.top = 800f
+        // move down, needs condition added.
+        else if (moving == down && position.top < 2*unit){
+            position.top += speed / fps
         }
+        else if (moving == stopped){
+            position.top = screenY/2f
+            position.left = screenX/2f
+        }
+        // update position
+        position.right = position.left + width
+        position.bottom = position.top + height
     }
 }

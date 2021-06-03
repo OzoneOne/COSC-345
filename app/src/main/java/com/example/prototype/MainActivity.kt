@@ -6,13 +6,18 @@ import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
 
+/**
+ * This class is the entry point to the game
+ * and will initialize an instance of the class
+ * that does all the work as well as
+ * start and stops the game loop/thread when
+ * the player starts and stops the app.
+ */
 class MainActivity : Activity() {
-
-    // kotlinInvadersView will be the view of the game
+    // alpha03View will be the view of the game
     // It will also hold the logic of the game
     // and respond to screen touches as well
-    private var mainView: MainView? = null
-
+    private var gameView: MainView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,8 +32,8 @@ class MainActivity : Activity() {
         display.getSize(size)
 
         // Initialize gameView and set it as the view
-        mainView = MainView(this, size)
-        setContentView(mainView)
+        gameView = MainView(this, size)
+        setContentView(gameView)
     }
 
     // This method executes when the player starts the game
@@ -36,7 +41,7 @@ class MainActivity : Activity() {
         super.onResume()
 
         // Tell the gameView resume method to execute
-        mainView?.resume()
+        gameView?.resume()
     }
 
     // This method executes when the player quits the game
@@ -44,6 +49,6 @@ class MainActivity : Activity() {
         super.onPause()
 
         // Tell the gameView pause method to execute
-        mainView?.pause()
+        gameView?.pause()
     }
 }
