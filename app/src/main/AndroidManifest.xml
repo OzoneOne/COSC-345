@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Prototype">
         <activity android:name=".MainActivity"
-            android:screenOrientation="landscape">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="landscape"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
