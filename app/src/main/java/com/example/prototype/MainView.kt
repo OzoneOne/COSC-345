@@ -7,7 +7,8 @@ import android.view.SurfaceView
 import android.util.Log
 import android.view.MotionEvent
 
-/** This class is the class that does all the work.
+/**
+ * This class is the class that does all the work.
  * In fact, it probably does too much work.
  * It will hold instances of all the other classes and
  * control their updating, interaction and drawing to the screen.
@@ -24,15 +25,14 @@ class MainView(context: Context, private val size: Point) : SurfaceView(context)
     private var canvas: Canvas = Canvas()
     private val paint: Paint = Paint()
 
-    /** Here we initialise the game objects */
-    // The player
+    // Initialise the player game object
     private var player: Player = Player(context, size.x, size.y)
 
-    /** tracks to do:
+    // The tracks you can play
+    /* tracks to do:
      * - give it a random generator, make obstacles activate when it returns true
      * - do collision detection between obstacles n player
      */
-    // The tracks you can play
     private var track: Tracks = Tracks(context, size.x, size.y)
 
     private val trackObstacles = ArrayList<Obstacle>()
@@ -45,7 +45,9 @@ class MainView(context: Context, private val size: Point) : SurfaceView(context)
     private var lives = 1
     private var highScore = 0
 
-    /** Here we initialise the game objects */
+    /**
+     * Initialises the game objects for a level
+     */
     private fun prepareLevel() {
         for (i in 0 until maxObstacles ){
             trackObstacles.add(Obstacle(context, size.y))
@@ -77,7 +79,9 @@ class MainView(context: Context, private val size: Point) : SurfaceView(context)
     }
 
     private fun update(fps: Long) {
-        /** Update the state of all the game objects **/
+        /**
+         * Updates the state of all the game objects on every frame
+         **/
         var lost = false
         // Update player and move them
         player.update(fps)
@@ -139,13 +143,13 @@ class MainView(context: Context, private val size: Point) : SurfaceView(context)
             // Choose the brush color for drawing
             paint.color = Color.argb(255, 0, 255, 0)
 
-            /** Draw all the game objects here **/
+            /* Draw all the game objects here **/
             // BR
             canvas.drawBitmap(track.trackBitmap, track.trackPosition.left,
                 track.trackPosition.top, paint)
 
             // Obstacles
-            /** CURRENTLY DONT NEED
+            /* CURRENTLY DONT NEED
             canvas.drawBitmap(track.obstacleBitmap, track.obstaclePosition.left,
             track.obstaclePosition.top, paint) **/
 
