@@ -7,12 +7,13 @@ import android.view.SurfaceView
 import android.util.Log
 import android.view.MotionEvent
 
-
-// This class is the class that does all the work.
-// In fact, it probably does too much work.
-// It will hold instances of all the other classes and
-// control their updating, interaction and drawing to the screen.
-// It will also handle the player’s screen touches.
+/**
+ * This class is the class that does all the work.
+ * In fact, it probably does too much work.
+ * It will hold instances of all the other classes and
+ * control their updating, interaction and drawing to the screen.
+ * It will also handle the player’s screen touches.
+ */
 
 
 class MainView(context: Context, private val size: Point) : SurfaceView(context), Runnable {
@@ -47,7 +48,6 @@ class MainView(context: Context, private val size: Point) : SurfaceView(context)
 
 
     // Initialises the game objects for a level
-   
     private fun prepareLevel() {
         for (i in 0 until maxObstacles ){
             trackObstacles.add(Obstacle(context, size.y))
@@ -79,8 +79,9 @@ class MainView(context: Context, private val size: Point) : SurfaceView(context)
     }
 
     private fun update(fps: Long) {
-
-        // Updates the state of all the game objects on every frame
+        /**
+         * Updates the state of all the game objects on every frame
+         */
 
         var lost = false
         // Update player and move them
