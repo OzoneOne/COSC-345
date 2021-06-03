@@ -14,6 +14,8 @@ import android.view.MotionEvent
  * control their updating, interaction and drawing to the screen.
  * It will also handle the player’s screen touches.
  */
+
+
 class MainView(context: Context, private val size: Point) : SurfaceView(context), Runnable {
     // Game thread
     private val gameThread = Thread(this)
@@ -77,7 +79,7 @@ class MainView(context: Context, private val size: Point) : SurfaceView(context)
     }
 
     private fun update(fps: Long) {
-        /*
+        /**
          * Updates the state of all the game objects on every frame
          */
 
