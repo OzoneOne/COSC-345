@@ -1,8 +1,16 @@
-- Android app written in Kotlin
-- Theme: time wasting
+Android App written in Kotlin
+-----------------------------
+-----------------------------
+Theme: Time Wasting
+--------------------
 
 
-BRAINSTORMING (19 March)
+BRAINSTORMING:
+--------------
+--------------
+
+19 March:
+------------------------
 
 - app that allows users to waste time
   - addictive game, casino?
@@ -20,7 +28,8 @@ BRAINSTORMING (19 March)
   - intentionally over-complex
 
 
-BRAINSTORMING (26 March)
+26 March:
+-------------------------
 
 x game where you're stuck in the back of a queue & you have to get to the front
 x app that rings studylink
