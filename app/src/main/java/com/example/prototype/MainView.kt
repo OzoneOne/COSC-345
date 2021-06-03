@@ -87,7 +87,7 @@ class MainView(context: Context, private val size: Point) : SurfaceView(context)
         player.update(fps)
         // Update track
         track.update(fps)
-        // **
+        
         if (track.tryStartObstacle(waves)) {
             if (trackObstacles[nextObstacle].startObstacle(size.x.toFloat(), size.y / 2f, 0)) {
                 // obstacle activated
